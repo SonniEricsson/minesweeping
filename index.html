@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Song">
+        <meta name="description" content="Minesweeper game project">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minesweeper</title>
+        <link rel="stylesheet" href="minesweeper.css"> 
+        <script src="minesweeper.js"></script>
+    </head>
+
+    <body>
+        
+        <div id="start-screen" class="center-stuff">
+            <h1 id="start-title">Minesweeper</h1>
+            <!--Switch from start screen to difficulty screen-->
+            <button onclick="startup()" class="start-button light-button">Start game</button>
+        </div>
+        
+        <div id="difficulties" style="display: none;" class="center-stuff">
+            <h1 id="difficulty-title">Select a difficulty.</h1>
+            <br>
+            <div>
+                <!--Switch to game after difficulty has been selected-->
+                <button onclick="easyDifficulty()" class="light-button difficulty-button">Easy: 10x10 and 15 mines</button>
+                <br>
+                <button onclick="mediumDifficulty()" class="light-button difficulty-button">Medium: 16x16 and 40 mines</button>
+                <br>
+                <button onclick="hardDifficulty()" class="light-button difficulty-button">Hard: 20x20 and 80 mines</button>
+            </div>
+        </div>
+
+
+        <div id="game-screen" style="display: none;" class="center-stuff">
+            <div id="top-options">
+                <h1> <button id="flag" class="button light-button light-flag">🚩</button>
+                <span id="flag-number"></span> 
+                </h1>
+            </div>
+
+            <div id="board" class="light"></div>
+            <br>
+
+            <div id="bottom-options">
+                <button id="return" class="button light-button">⮌</button>
+                <button id="help" class="button light-button">❔</button>
+                <button onclick="changeTheme()" id="theme" class="button light-button">☀️</button>
+            </div>
+        </div>
+
+
+        <!--Overlay has to be outside of centering so it can cover the whole page-->
+        <div id="overlay" class="overlay"></div>
+
+        <div id="popups">
+            <!--Popup-->
+            <div id="return-popup" class="popup light-popup">
+                <!--Popup title-->
+                <div id="return-title" class="header">
+                    <div class="title">Restart game</div>
+                    <button id="return-close" class="close-button">&times;</button>
+                </div>
+                <!--Popup content-->
+                <div id="return-content" class="content">
+                    <p>Are you sure you want to start a new game?</p>
+                    <button onclick="restartGame()" class="light-button yes-no-button">✔️</button>
+                    <button id="close-return" class="light-button yes-no-button">❌</button>  
+                </div>
+            </div>
+
+
+            <div id="help-popup" class="popup light-popup">
+                <div id="instructions" class="header">
+                    <div class="title">Instructions</div>
+                    <button id="help-close" class="close-button">&times;</button>
+                </div>
+                <div id="help-content" class="content">
+                    <p>Find all the mines!</p>
+                    <div id="setting-mines" class="instruction">
+                        <div id="tut-flag" class="tile light-tile">🚩</div>
+                        <p>Set flags on tiles with mines</p>
+                    </div>
+                    <br>
+                    <div id="tile-number" class="instruction">
+                        <div id="tut-tile" class="tile-clicked light-tile-clicked tile2">2</div>
+                        <p>Number of adjacent mines</p>
+                    </div>
+                    <br>
+                    <p>That's pretty much it have fun!</p>
+                </div>
+            </div>
+
+
+            <div id="loss-popup" class="popup light-popup">
+                <div id="loss-title" class="header">
+                    <div class="title">Loser!</div>
+                    <button id="loss-close" class="close-button">&times;</button>
+                </div>
+                <div id="loss-content" class="content">
+                    <div>You blew us all up!</div>
+                    <br>
+                    <button onclick="restartGame()" class="light-button">Try again</button>  
+                </div>
+            </div>
+
+            <div id="win-popup" class="popup light-popup">
+                <div id="win-title" class="header">
+                    <div class="title">Winner!</div>
+                    <button id="win-close" class="close-button">&times;</button>
+                </div>
+                <div id="win-content" class="content">
+                    <div>Good job, you found all the mines!</div>
+                    <br>
+                    <button onclick="restartGame()" class="light-button">Play again</button>
+                </div>
+            </div>
+
+        </div>
+        
+    </body>
+</html>
+

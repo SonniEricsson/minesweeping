@@ -1,0 +1,326 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.start-button {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.center-stuff {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.difficulty-button {
+    width: 280px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.easy-board {
+    width: 500px;
+    height: 500px;
+
+    margin: 0 auto;
+    display: flex; /* flex display so the tiles will wrap to the next row. */
+    flex-wrap: wrap;
+}
+
+.medium-board {
+    width: 800px;
+    height: 800px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hard-board {
+    width: 1000px;
+    height: 1000px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* light/dark theme for the game board. */
+.light {
+    border: 10px solid darkgray;
+    background-color: lightgray;
+}
+
+.dark {
+    border: 10px solid rgb(20, 20, 20);
+    background-color: rgb(41, 41, 41);
+}
+/*
+#easy-board div {
+    width: 40px;
+    height: 40px;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-bottom: 5px solid darkgray;
+    border-right: 5px solid darkgray;
+    
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#medium-board div {
+    width: 40px;
+    height: 40px;
+    border-top: 5px solid darkgray;
+    border-left: 5px solid darkgray;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hard-board div {
+    width: 40px;
+    height: 40px;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-bottom: 5px solid darkgray;
+    border-right: 5px solid darkgray;
+    
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*/
+
+.tile {
+    width: 40px;
+    height: 40px;
+
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light-tile {
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-bottom: 5px solid darkgray;
+    border-right: 5px solid darkgray;
+    background-color: lightgray;
+}
+
+.dark-tile {
+    border-top: 5px solid rgb(61, 61, 61);
+    border-left: 5px solid rgb(61, 61, 61);
+    border-bottom: 5px solid rgb(20, 20, 20);
+    border-right: 5px solid rgb(20, 20, 20);
+    background-color: rgb(41, 41, 41);
+}
+
+.tile-clicked {
+    width: 46px;
+    height: 46px;
+
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light-tile-clicked{
+    border: 2px solid darkgray;
+    background-color: lightgray;
+}
+
+.dark-tile-clicked{
+    border: 2px solid rgb(10, 10, 10);
+    background-color: rgb(31, 31, 31);
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+
+    align-items: center;
+}
+
+.light-button {
+    background-color: rgb(230, 230, 230);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.dark-button {
+    background-color: rgb(61, 61, 61);
+    border: 1px solid dimgray;
+    border-radius: 5px;
+}
+
+
+.light-button:hover {
+    background-color: rgb(211, 211, 211);
+}
+
+.dark-button:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+.light-flag {
+    border: 3px solid lightgray;
+}
+
+.dark-flag {
+    border: 3px solid dimgray;
+}
+
+/*
+#return {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+}
+
+.help {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+}
+*/
+
+.tile1 {
+    color: blue;
+}
+
+.tile2 {
+    color: green;
+}
+
+.tile3 {
+    color: red;
+}
+
+.tile4 {
+    color: darkblue;
+}
+
+.tile5 {
+    color: brown;
+}
+
+.tile6 {
+    color: aqua;
+}
+
+.tile7 {
+    color: black;
+}
+
+.tile8 {
+    color: grey;
+}
+
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0); /* make it invisible */
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px; /*round edges*/
+    z-index: 10; /*put it in the front*/
+    width: 350px;
+    max-width: 80%;
+}
+
+.light-popup{
+    background-color: whitesmoke;
+}
+
+.dark-popup {
+    background-color: rgb(41, 41, 41);
+}
+
+.popup.active {
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between; /*space between title and close button*/
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+
+
+.content {
+    padding: 10px 15px
+}
+
+.instruction {
+    display: flex;
+    column-gap: 20px;
+}
+
+.overlay {
+    position: fixed;
+    /* cover entire screen, make it darker */
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: none;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.yes-no-button {
+    width: 70px;
+    height: 30px;
+    font-size: 20px;
+}
